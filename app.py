@@ -23,7 +23,21 @@ road_type = st.selectbox("Road Type", list(road_map.keys()))
 
 vehicle_count = st.number_input("Vehicle Count (approx.)", min_value=0, step=1)
 road_lanes = st.number_input("Number of Road Lanes", min_value=1, max_value=6, step=1)
-vehicle_mix_ratio = st.slider("Vehicle Mix Ratio (0: all small cars, 1: all heavy vehicles)", 0.0, 1.0, 0.5, step=0.01)
+# Vehicle mix type input
+vehicle_mix = st.selectbox(
+    "Vehicle Mix Type",
+    ["Mostly Small Vehicles", "Balanced Mix", "Mostly Heavy Vehicles"]
+)
+
+# Map label to ratio
+mix_ratio_map = {
+    "Mostly Small Vehicles": 0.2,
+    "Balanced Mix": 0.5,
+    "Mostly Heavy Vehicles": 0.8
+}
+
+vehicle_mix_ratio = mix_ratio_map[vehicle_mix]
+
 
 # Prediction button
 if st.button("Predict"):
