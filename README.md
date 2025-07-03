@@ -44,7 +44,6 @@ This project includes:
 
 ## Run the streamlit app - streamlit run app.py
 
-The app will launch in your default browser at **http://localhost:8501**.
 
 ---
 
